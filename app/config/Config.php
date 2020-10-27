@@ -14,7 +14,6 @@ class config
 
     function auth()
     {
-        session_start();
         if (isset($_SESSION['login']['email'])) {
             return true;
         } else {
