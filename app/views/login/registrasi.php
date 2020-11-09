@@ -9,9 +9,9 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                         </div>
-                        <form class="user" method="post" action="">
+                        <form class="user" method="post" action="<?= BASEURL; ?>/Auth/register">
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Full Name">
+                                <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Name">
 
                             </div>
                             <div class="form-group">

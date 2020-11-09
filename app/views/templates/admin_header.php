@@ -26,6 +26,9 @@
                         <a class="nav-link" href="<?= BASEURL; ?>/Barang">Product</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="<?= BASEURL; ?>/User">Users</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="<?= BASEURL; ?>/Auth/logout">Logout</a>
                     </li>
                 </ul>

@@ -81,10 +81,6 @@
                         <label for="harga">Harga</label>
                         <input type="text" class="form-control" id="harga" name="harga">
                     </div>
-                    <!-- <div class="form-group">
-                        <label for="gambar">Gambar</label>
-                        <input type="text" class="form-control" id="gambar" name="gambar">
-                    </div> -->
                     <div class="form-group">
                         <label for="gambar">Gambar</label>
                         <div class="custom-file">

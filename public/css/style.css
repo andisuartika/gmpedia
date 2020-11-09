@@ -1,0 +1,33 @@
+.font {
+    font-family: Poppins;
+    color: #707070;
+}
+
+.home-text {
+    font-family: Poppins;
+    margin-left: 100px;
+    padding-right: 100px;
+}
+
+.home-judul {
+    margin-top: 150px;
+}
+
+.home-harga {
+    margin-top: 150px;
+    font-size: 78px;
+    font-weight: bold;
+    color: #81B214;
+}
+
+.home-deskripsi {
+    margin-left: 20px;
+}
+
+.img-barang {
+    margin-top: 50px;
+}
+
+.tombol {
+    margin-left: 100px;
+}

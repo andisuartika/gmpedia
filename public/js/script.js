@@ -1,5 +1,6 @@
 $(function() {
 
+    // barang
     $('.tombolTambahData').on('click', function() {
         $('#formModalLabel').html('Tambah Data Barang');
         $('.modal-footer button[type=submit]').html('Tambah Data');
@@ -31,5 +32,40 @@ $(function() {
             }
         });
     });
+
+    // end barang
+
+    // user
+    $('.tombolTambahUser').on('click', function() {
+        $('#formModalLabel').html('Tambah User');
+        $('.modal-footer button[type=submit]').html('Tambah User');
+        $('.modal-body form')[0].reset();
+    });
+
+    $('.tampilUserUbah').on('click', function(){
+        $('#formModalLabel').html('Ubah User');
+        $('.modal-footer button[type=submit]').html('Ubah User');
+        $('.modal-body form').attr('action', 'http://localhost/gmpedia/public/user/ubah');
+
+        const id = $(this).data('id');
+        
+        $.ajax({
+            url: 'http://localhost/gmpedia/public/user/getubah',
+            data: {
+                id: id
+            },
+            method: 'post',
+            dataType: 'json',
+            success: function (data) {
+                $('#name').val(data.name);
+                $('#email').val(data.email);
+                $('#role_id').val(data.role_id);
+                $('#password').val(data.password);
+
+            }
+        });
+    });
+
+    // end barang
 
 });
