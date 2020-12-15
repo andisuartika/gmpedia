@@ -4,19 +4,20 @@ class Admin extends Controller
 {
     public function index()
     {
-        require_once '../app/config/Config.php';
-        $con = new config();
 
+        if ($_SESSION['login']['role'] == 'Admin') {
 
-        if ($con->auth() == TRUE) {
-            // pangggil fungsi
+            // jika role admin
             $data['judul'] = 'Admin';
-            $this->view('templates/admin_header', $data);
-            $this->view('admin/index');
-            $this->view('templates/footer');
-        } else {
+            $this->view('templates/admin/header', $data);
+            $this->view('admin/index', $data);
+            $this->view('templates/admin/footer');
+        } else if ($_SESSION['login']['role'] == 'Member') {
+
+            // jika role member
+            header('Location: ' . BASEURL . '/Home');
+        } else
             // panggil login
             header('Location: ' . BASEURL . '/Auth');
-        }
     }
 }

@@ -4,24 +4,37 @@ if (isset($_POST['email'])) {
     $conn = $con->koneksi();
     $email = $_POST['email'];
     $psw = $_POST['password'];
-    $sql = "SELECT * FROM user WHERE password = '$psw' AND email = '$email'";
+    $sql = "SELECT * FROM user WHERE email = '$email'";
     $user = $conn->query($sql);
     if ($user->num_rows > 0) {
-        $sess = $user->fetch_array();
-        $_SESSION['login']['email'] = $sess['email'];
-        $_SESSION['login']['id'] = $sess['id'];
-        $_SESSION['login']['name'] = $sess['name'];
-        header('Location: ' . BASEURL . '/Admin');
+
+        $row = mysqli_fetch_assoc($user);
+
+        // verifikasi password md5
+        if (password_verify($psw, $row["password"])) {
+
+            $sess = $user->fetch_array();
+            $_SESSION['login']['email'] = $row['email'];
+            $_SESSION['login']['id'] = $row['id'];
+            $_SESSION['login']['nama'] = $row['nama'];
+            $_SESSION['login']['image'] = $row['image'];
+            $_SESSION['login']['role'] = $row['role'];
+
+            if ($row['role'] == 'Admin') {
+                header('Location: ' . BASEURL . '/Admin');
+            } else {
+                header('Location: ' . BASEURL . '/Home');
+            }
+        } else {
+            $data['msg']  = 'Password yang anda masukkan salah!';
+            $this->view('login/index', $data);
+        }
     } else {
-        $msg = 'email dan password tidak ditemukan';
-        $data['judul'] = 'Login';
-        $this->view('templates/header', $data);
-        $this->view('login/index', $msg);
+        $data['msg'] = 'Email belum terdaftar!';
+        $this->view('login/index', $data);
         $this->view('templates/footer');
     }
 } else {
-    $data['judul'] = 'Login';
-    $this->view('templates/header', $data);
     $this->view('login/index');
     $this->view('templates/footer');
 }

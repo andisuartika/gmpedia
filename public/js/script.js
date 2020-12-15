@@ -23,7 +23,7 @@ $(function() {
             dataType: 'json',
             success: function (data) {
                 $('#nama').val(data.nm_barang);
-                $('#type').val(data.type_barang);
+                $('#type').val(data.kategori);
                 $('#keterangan').val(data.keterangan);
                 $('#stok').val(data.stok);
                 $('#harga').val(data.harga);
@@ -57,11 +57,10 @@ $(function() {
             method: 'post',
             dataType: 'json',
             success: function (data) {
-                $('#name').val(data.name);
+                $('#name').val(data.nama);
                 $('#email').val(data.email);
-                $('#role_id').val(data.role_id);
-                $('#password').val(data.password);
-
+                $('#role_id').val(data.role);
+                $('#id').val(data.id);
             }
         });
     });

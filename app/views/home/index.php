@@ -12,7 +12,7 @@
             </div>
             <div class="row home-text">
                 <div class="col-md-4 ">
-                    <a class="button" href="#">
+                    <a class="button" href="https://linktr.ee/gmpedia">
                         <button type="button" class="btn btn-success tombol-order">Order Now!</button></a>
                 </div>
             </div>
